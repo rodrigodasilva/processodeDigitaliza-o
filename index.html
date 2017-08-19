@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+	<title>PDS</title>
+	<link rel="icon" href="logo.jpg" />
+	
+	<script src="Chart.bundle.js"></script>
+    <script src="utils.js"></script>
+	<script src="Chart.min.js"></script>
+	<script src="jquery-3.2.1.js"></script>
+	<script src="meu_javascript.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row cabecalho">
+			<div class="col-md-3 imagem-cabecalho">
+				<img class="img-responsive" src="logo.jpg" alt="imagem processamento de sinal digital">
+			</div>
+			<div class="col-md-9" style="padding-left:0px;">
+				<h1 id="titulo">Processamento Digital de Sinais</h1>
+				<h2 id="subtitulo">Software para estudo do processo de digitalização</h2>
+			</div>
+		</div>
+
+		<hr style="margin-top: 10px; margin-bottom: 10px; border-color: lightgray;">
+		<!-- PRIMEIRA ROW -->
+		<div class="row">
+			<!-- PRIMEIRA COLUNA -->
+			<div class="col-md-5" style="padding-left: 0px; border: 1px solid lightgray;">
+				<div class="row"> <!--  ROW FORMULARIO  -->						
+					<!--  FORMULARIO  -->
+					<form class="form-horizontal">	
+						<h4><strong>Dados de Entrada</strong></h4>
+						<hr style="margin-top: 3px; margin-bottom: 3px; border-color: lightgray;">				
+						<div class="form-group">
+							<label class="col-sm-2">Função</label>
+							<div class="col-sm-10">
+								<p class="form-crontrol-static">x(t) = sin(2*PI*f*t) </p>					
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2" for="fs">Fs</label>
+							<div class="col-sm-10">
+								<input type="number" class="form-crontrol" name="fs" id="fs" placeholder="3" autofocus>
+							</div>
+						</div>				
+						<div class="form-group">
+							<label class="col-sm-2" for="bits">Bits</label>
+							<div class="col-sm-10">
+								<input type="number" class="form-crontrol" name="bits" id="bits" placeholder="8">
+							</div>	
+						</div>					
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">	
+								<button type="submit" class="btn btn-primary center-block"><strong>Calcular</strong></button>
+							</div>
+						</div>
+					</form><!--  FIM DO FORMULARIO  -->
+				</div> <!--  FIM DA ROW FORMULARIO  -->
+			</div><!-- FIM DA PRIMEIRA COLUNA -->
+
+			<div class="col-md-7">	
+				<!-- COLUNA DE EXIBICAO DOS RESULTADOS -->
+				<div class="row" id="resultado" style="padding: 10px 5px;"> 
+						<h4><strong>Resultados</strong></h4>
+						<hr style="margin-top: 3px; margin-bottom: 3px; border-color: lightgray;">				
+						<div class="col-sm-3 divs-exibicao">
+							<h5>Amostragem</h5>
+							<div type="text" class="form-control scroll">
+								<ul id="lista-amostragem" style="list-style-type:none">
+								<!-- Serão adicionados itens aqui com javascript -->
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-sm-3 divs-exibicao">
+							<h5>Quantização</h5>
+							<div id="q" type="text" class="form-control scroll">
+								<ul id="lista-quantizacao" style="list-style-type:none">
+								<!-- Serão adicionados itens aqui com javascript -->	
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-sm-3 divs-exibicao">
+							<h5>Erro</h5>
+							<div id="d" type="text" class="form-control scroll">
+								<ul id="lista-erro" style="list-style-type:none">
+								<!-- Serão adicionados itens aqui com javascript -->
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-sm-3 divs-exibicao">
+							<h5>Codificação</h5>
+							<div id="d" type="text" class="form-control scroll">
+								<ul id="lista-codificacao" style="list-style-type:none">
+								<!-- Serão adicionados itens aqui com javascript -->
+								</ul>
+							</div>
+						</div>
+				</div><!--FIM DA ROW DE EXIBICAO DOS RESULTADOS -->
+			</div><!--  FIM DA SEGUNDA COLUNA -->
+		</div> <!-- FIM DA PRIMEIRA ROW -->	
+
+		<hr style="margin-top: 15px; margin-bottom: 0px; border-color: lightgray;">	
+		<!-- SEGUNDA ROW -->
+		<div class="row"> 
+			<!-- GRAFICOS -->
+			<!--div class="col-md-12" id="div-graficos"-->
+				<div class="row" id="div-botoes">
+					<a class="botao" id="btn-analogico-amostrado" style="border-bottom-color: white">Analógico/Amostrado</a>	
+					<a class="botao" id="btn-quantizado">Quantizado</a>			
+					<!--<button class="botao" id="btn-erro" style="border-bottom-right-radius: 4px;">Erro</button>-->			
+				</div>
+
+				<div class="row" id="exibe-grafico">
+					<!-- Grafico Analogico -->
+			        <div class="row" id="grafico-analogico-amostrado">
+			            <canvas class="analogico-amostrado"/>
+			        </div>  
+
+		            <!-- Grafico Quantizado -->
+		            <div class="row" id="grafico-quantizado" style="display: none;">
+			            <canvas class="quantizado"/>
+			        </div>
+
+			        <!-- Grafico de Erro 
+		            <div class="row" id="grafico-erro" style="display: none;">
+			            <canvas class="erro"/>
+			        </div> -->
+			    </div>
+
+		    <!--/div--><!--  FIM DA COLUNA DOS GRAFICOS-->
+					
+		</div> <!--  FIM DA SEGUNDA ROW -->
+
+	</div><!--FIM CONTAINER-->
+	
+	<footer class="footer">
+		<div class="rodape">
+			<p style="color: white; margin-bottom: 0px;">&copy; 2017 Rodrigo da Silva Ribeiro</p>
+		</div>
+	</footer>
+</body>
+</html>

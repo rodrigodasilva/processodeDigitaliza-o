@@ -1,0 +1,139 @@
+*{
+    font-family: calibri;        
+}
+
+.container {
+	margin-top: 8px;
+	min-height: 604px;
+}
+
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+/*-- Cabeçalho --*/
+.imagem-cabecalho {
+	width: 140px;
+	float: left;
+}
+
+.img-responsive {
+	min-width: 77px;
+    min-height: 60px;
+}
+
+/*Formulario*/
+.form-horizontal {
+	padding: 10px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 15px;
+	border-radius: 4px;
+}
+
+.form-group{
+	display: block;
+	margin-bottom: 10px;
+}
+
+.scroll{
+    height:136px;
+    overflow:auto;
+    background-color: rgba(238,238,238, 0.39);
+    padding: 3px 1px;
+    font-size: 13.8px
+}
+
+.divs-exibicao{
+	/*padding: 5px 3px;*/
+}
+
+.botao{
+	margin-right: -4px;
+	margin-left: -1px;
+	border-radius: 0px;
+	background-color: white;
+	border: 1px solid lightgray;
+	cursor: pointer;
+	padding: 1px 6px 4px 5px;
+	color: black;
+}
+
+/*-- Rodape ---*/
+.footer{
+	color: white;
+}
+
+.rodape {
+	text-align: center;
+	border-top-style: ridge;
+	padding: 1px 0px;
+	border-width: thin;
+    background-color: #333333; 
+	font-size: 16px;
+}
+
+#resultado {
+	padding-bottom: 10px;
+	border: 1px solid lightgray;
+}
+
+#div-graficos{
+	border: 1px solid lightgray;
+}
+
+input {
+	border-radius: 4px;
+	width: 100%;
+	border: 1px solid lightgray;
+	padding: 2px 5px;
+	margin-left: 0px;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+ul{
+	padding-left: 0px;
+}
+
+a:hover{
+	text-decoration: none;  
+}
+
+canvas{ 
+	margin-top: 10px;
+	max-height: 400px;
+}
+
+h1 {
+	font-size: 35px;
+	text-align: left;
+	margin-top: 15px;
+	margin-bottom: auto;
+	font-weight: 600;
+}
+
+h2 {
+	color: black;
+	margin: 0;
+	font-size: 20px;
+	margin-bottom: 0px;
+}
+
+h3, h4, h5 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-align: left;
+}
+
+
+/*
+@media (max-width: 480px) {
+	form{
+		width: 100%;
+	}
+}
+*/
